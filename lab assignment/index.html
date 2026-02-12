@@ -1,52 +1,119 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Event Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="eventform">
-            <form id="form">
-                <label for="eventitle">Event Title:</label>
-                <input type="text" id="eventitle" required><br>
+    <h1>🎯Smart Event Dashboard</h1>
+    <div class="container1">
+        <div id="main-event-add-container">
+            <h3><b>Add New Event</b></h3>
+            <form>
+                <label for="Event-title">Event Title:</label>
+                <input type="text" id="Event-title" name="Event-title" required><br><br>
 
-                <label for="eventDate">Event Date:</label>
-                <input type="date" id="eventDate" required><br>
+                <label for="Event-date">Event Date:</label>
+                <input type="date" id="Event-date" name="Event-date" required><br><br>
 
-                <label for="category">Category:</label>
-                <select id="category">
-                    <option value="conference">Conference</option>
-                    <option value="workshop">Workshop</option>
-                    <option value="meetup">Meetup</option>
-                    <option value="webinar">Webinar</option>
+                <label for="event-categories">Categories:</label>
+                <select id="event-categories" name="event-categories">
+                    <option value="Conference">Conference</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Seminar">webinar</option>
+                    <option value="Meetup">Meetup</option>
                     <option value="social">Social</option>
-                </select><br>
+                </select><br><br>
 
-                <label for="description">Description:</label>
-                <textarea id="description" required></textarea><br>
-
+                <label for="event-description">Event Description:</label><br>
+                <textarea id="event-description" name="event-description" rows="4" cols="50"></textarea><br><br>
                 <button type="submit">Add Event</button>
             </form>
         </div>
-
-        <div class="event">
-            <button id="clearAll">Clear All Events</button>
-            <button id="addSample">Add Sample Events</button>
-            <div class="cards"></div>
-        </div>
-            <br><br>
-    </div>
-
-    <div class="dom-demo-section">
-        <div class="demo-card">
-            <h2 class="demo-heading">DOM Manipulation Demo</h2>
-                <div class="demo-content">
-                    <p>You Pressed: <strong id="pressedKey">Shift</strong></p>
+        <section class="event-display-section">
+            <h3>My Events </h3>
+            <div>
+                <button id="clear-event-btn">Clear All Events</button>
+                <button id="add-sample-btn">Add Sample Events</button>
+            </div>
+            <div id="all-events-container">
+                No Event Yet
+            </div>
+        </section>
+        <section class="doms">
+            <h2>DOM Manipulation Demo</h2>
+            <div id="key-display" class="demo-box">
+                <div id="output">
+                <strong>You Pressed:</strong> <span id="key-text">None</span>
                 </div>
-        </div>
+            </div>
+        </section>
+
     </div>
-    <script src="ok.js"></script>
+    <script>
+        let form = document.querySelector("form");
+        let title = document.querySelector("#Event-title");
+        let date = document.querySelector("#Event-date");
+        let category = document.querySelector("#event-categories");
+        let description = document.querySelector("#event-description");
+        let allEventsContainer = document.querySelector("#all-events-container");
+        let clearEventBtn = document.querySelector("#clear-event-btn");
+        let addSampleBtn = document.querySelector("#add-sample-btn");
+        let keyTextDisplay = document.querySelector("#key-text");
+
+        function addEventFunction(event) {
+            event.preventDefault();
+            createElement(title.value, date.value, category.value, description.value);
+            form.reset();
+        }
+
+
+        function clearAllEventfunction() {
+            allEventsContainer.innerHTML = `No Event Yet`;
+        }
+
+        function createElement(eventTitle, eventDate, eventCategory, eventDescription) {
+            let card = document.createElement("div");
+            card.classList.add("event-card");
+            
+            card.innerHTML = `<div style="border: 1px solid #ccc; padding: 15px; margin: 5px 0; border-radius: 12px; position: relative; background: #ddefea; width: 220px; height: 230px; display: flex; flex-direction:column; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <button class="delete-btn" style="position: absolute; right: 10px; top: 10px; cursor: pointer; color: red;">X</button>
+                <h4 style="margin: 0 0 10px 0; padding-right: 30px;  color: #333; font-size:25px;">${eventTitle}</h4>
+                <p style="font-size:15px;">📆 ${eventDate}</p>
+                <p style="font-size:15px;">${eventCategory}</p>
+                <p style="font-size:15px;">${eventDescription}</p>
+            </div>`;
+            
+            card.querySelector(".delete-btn").addEventListener("click", function () {
+                card.remove();
+                if (allEventsContainer.innerHTML === "") {
+                    allEventsContainer.innerHTML = "No Event Yet";
+                }
+            });
+            
+            if (allEventsContainer.innerText.includes("No Event Yet")) {
+                allEventsContainer.innerHTML = "";
+            }
+            
+            allEventsContainer.append(card);
+        }
+
+        function addSampleEvents() {
+            createElement("Web Development Conference", "15/04/2026", "Conference", "Annual conference on modern web technologies.");
+            createElement("JavaScript Workshop", "20/04/2026", "Workshop", "Hands-on JavaScript learning session.");
+        }
+        form.addEventListener("submit", addEventFunction);
+        clearEventBtn.addEventListener("click", clearAllEventfunction);
+        addSampleBtn.addEventListener("click", addSampleEvents);
+        document.addEventListener('keydown', function (event) {
+            keyTextDisplay.innerText = event.key;
+        });
+
+    </script>
 </body>
+
 </html>

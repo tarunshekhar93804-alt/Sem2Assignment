@@ -1,185 +1,141 @@
-* {
+body{
+    background:linear-gradient(135deg, #4dd3e8 0%, #0d7ca1 100%);
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    
 }
-
-body {
-    background: linear-gradient(to right, #c9d60d, #b87a0e);
-    min-height: 100vh;
-    padding: 20px;
+h1{
+    color: white;                                   
+    text-align: center;
 }
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-    display: flex;
+h3{
+    color:rgb(23, 96, 213);
+}
+.container1{
+    Display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Form Section */
-.eventform {
-    flex: 1;
-    min-width: 280px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.eventform h2 {
-    margin-bottom: 15px;
-}
-
-.eventform label {
-    display: block;
-    margin-top: 10px;
+    flex-direction: row;
     font-weight: bold;
-}
-
-.eventform input,
-.eventform select,
-.eventform textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-.eventform textarea {
-    resize: none;
-    height: 70px;
-}
-
-.eventform button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px;
-    background-color: #6c63ff;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.eventform button:hover {
-    background-color: #c25222;
-}
-
-/* Event Section */
-.event {
-    flex: 2;
-    justify-content: center;
-    min-width: 320px;
-    background: white;
+    width: 80%;
+    margin: auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    
+    
 }
-
-.event button {
-    padding: 8px 12px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #6c63ff;
-    color: white;
-}
-
-.event button:hover {
-    background-color: #574fd6;
-}
-
-/* Cards Container */
-.cards {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* Individual Card */
-.card {
-    background-color: #f3f4ff;
-    width: 200px;
-    padding: 15px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.card p {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-/* Delete Button */
-.deletecard {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: red;
-    color: white;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-/* DOM Output Section */
-.dom {
-    width: 100%;
-    margin-top: 20px;
-    background: rgb(201, 235, 245);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    min-height: 60px;
-    align-items: center;
-}
-.dom-demo-section {
-    margin-top: 2rem;
-}
-
-.demo-card {
+#main-event-add-container{
     background: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    width:30%;
+    margin-top: 20px;
+    border: 2px solid gray;
+    border: none;
+    
+} 
+#main-event-add-container input[type="text"], #main-event-add-container input[type="date"], #main-event-add-container input[type="time"] , #main-event-add-container select , #main-event-add-container textarea {
+   
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#main-event-add-container button{
+    width:100%;
+    align-items: center;
+    background: linear-gradient(to right, #5c7cbe, #6eb7e6);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:all 0.2s ease;
 }
 
-.demo-heading {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #4a5fd0;
-    margin-bottom: 1.5rem;
+
+
+ #main-event-add-container, 
+.event-display-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.event-display-section {
+    width: 57%;
+    margin-top: 20px;
+    border: 2px solid gray;
+}
+#clear-event-btn, #add-sample-btn {
+    width:45%;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #5c7cbe, #6eb7e6);
+    margin:10px;
+    margin-left: 15px;
+    margin-bottom: 40px;
+    border:none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+button:active {
+    transform: scale(0.98);
 }
 
-.demo-content {
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 0.4rem;
-    font-size: 0.9rem;
+#all-events-container{
+    
+    display: flex;          
+    flex-direction: row;    
+    flex-wrap: wrap;        
+    gap: 20px;              
+    margin:10px;
+    
+    justify-content: flex-start; 
+
+}
+.delete-btn {
+    position: absolute;
+    right: 10px;    /* Distance from right edge */
+    top: 10px;      /* Distance from top edge */
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;    /* Ensures it stays on top */
 }
 
-.demo-content p {
-    color: #333;
-}
 
-.demo-content strong {
-    color: #4a5fd0;
-    font-weight: 600;
+.doms{
+    
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-top: 10px;
+}
+h2{
+    color:rgb(23, 96, 213);
+}
+.demo-box {
+    background-color: #ddefea;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+#output{
+    padding-left: 20px;
+    margin: 10px 0;
+    background-color: white;
+    width:auto;
+    border:2px solid rgb(159, 159, 159);
+    border-radius:8px;
 }
