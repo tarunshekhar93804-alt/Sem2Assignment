@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #0dd6ae, #0e44b8);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Form Section */
+.eventform {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.eventform h2 {
+    margin-bottom: 15px;
+}
+
+.eventform label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.eventform input,
+.eventform select,
+.eventform textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.eventform textarea {
+    resize: none;
+    height: 70px;
+}
+
+.eventform button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.eventform button:hover {
+    background-color: #c25222;
+}
+
+/* Event Section */
+.event {
+    flex: 2;
+    justify-content: center;
+    min-width: 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.event button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #6c63ff;
+    color: white;
+}
+
+.event button:hover {
+    background-color: #574fd6;
+}
+
+/* Cards Container */
+.cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Individual Card */
+.card {
+    background-color: #f3f4ff;
+    width: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Delete Button */
+.deletecard {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: red;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* DOM Output Section */
+.dom {
+    width: 100%;
+    margin-top: 20px;
+    background: rgb(201, 235, 245);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    min-height: 60px;
+    align-items: center;
+}
+.dom-demo-section {
+    margin-top: 2rem;
+}
+
+.demo-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.demo-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4a5fd0;
+    margin-bottom: 1.5rem;
+}
+
+.demo-content {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.demo-content p {
+    color: #333;
+}
+
+.demo-content strong {
+    color: #4a5fd0;
+    font-weight: 600;
+}
