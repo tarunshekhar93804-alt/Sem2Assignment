@@ -1,4 +1,3 @@
-
 const form = document.querySelector("#form")
 const eventTitle = document.querySelector("#eventitle")
 const eventDate = document.querySelector("#eventDate")
@@ -8,14 +7,8 @@ const eventcards = document.querySelector(".cards")
 const clearAllBtn = document.querySelector("#clearAll")
 const addSampleBtn = document.querySelector("#addSample")
 
-form.addEventListener("submit", function(event){
-    event.preventDefault()
-
-    const title = eventTitle.value
-    const date = eventDate.value
-    const cat = category.value
-    const desc = description.value
-
+// 🔹 Reusable function to create a card
+function createCard(title, date, cat, desc) {
     const card = document.createElement("div")
     card.classList.add("card")
 
@@ -28,26 +21,35 @@ form.addEventListener("submit", function(event){
     `
 
     eventcards.appendChild(card)
+}
+
+// 🔹 Form submit
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+
+    const title = eventTitle.value
+    const date = eventDate.value
+    const cat = category.value
+    const desc = description.value
+
+    createCard(title, date, cat, desc)
 
     form.reset()
 })
 
-
-// Delete card using event delegation
+// 🔹 Delete card (Event Delegation)
 eventcards.addEventListener("click", function(e){
     if(e.target.classList.contains("deletecard")){
         e.target.parentElement.remove()
     }
 })
 
-
-// Clear all cards
+// 🔹 Clear all cards
 clearAllBtn.addEventListener("click", function(){
     eventcards.innerHTML = ""
 })
 
-
-// Add sample events
+// 🔹 Add sample events
 addSampleBtn.addEventListener("click", function(){
 
     const sampleData = [
@@ -57,34 +59,11 @@ addSampleBtn.addEventListener("click", function(){
     ]
 
     sampleData.forEach(function(item){
-
-        const card = document.createElement("div")
-        card.classList.add("card")
-
-        card.innerHTML = `
-            <div class="deletecard">X</div>
-            <h3>${item.title}</h3>
-            <p><strong>Date:</strong> ${item.date}</p>
-            <p><strong>Category:</strong> ${item.cat}</p>
-            <p>${item.desc}</p>
-        `
-
-        eventcards.appendChild(card)
-        document.addEventListener('keydown', (e) => {
-           let keyName = e.key;
-           if (e.key === ' ') {
-               keyName = 'Space';
-           } else if (e.shiftKey) {
-               keyName = 'Shift';
-           } else if (e.ctrlKey) {
-               keyName = 'Ctrl';
-           } else if (e.altKey) {
-               keyName = 'Alt';
-           }
-    
-    pressedKeyElement.textContent = keyName;
-});
-
-renderEvents();
+        createCard(item.title, item.date, item.cat, item.desc)
     })
+})
+
+// 🔹 (Optional) Keyboard detection — moved outside loop
+document.addEventListener('keydown', function(e) {
+    console.log("Key pressed:", e.key)
 })
